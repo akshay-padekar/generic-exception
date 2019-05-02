@@ -244,7 +244,7 @@ class GenericException extends Error {
             reason: this.reason,
             inspectionFields: this.inspectionFields,
             locale: this.locale,
-            stack: super.stack
+            stack: this.stack
         });
     }
 }
