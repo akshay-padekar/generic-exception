@@ -49,6 +49,10 @@ class GenericException extends Error {
         _code = this.getFieldFromJson(staticMessage, 'code');
         _description = this.getFieldFromJson(staticMessage, 'description');
         _httpStatusCode = this.getFieldFromJson(staticMessage, 'httpStatusCode');
+
+        if (_wrappedException && _wrappedException instanceof Error) {
+            super.stack = _wrappedException.stack;
+        }
     }
 
     getFieldFromJson(message, type) {
@@ -239,7 +243,8 @@ class GenericException extends Error {
             wrappedException: this.wrappedException,
             reason: this.reason,
             inspectionFields: this.inspectionFields,
-            locale: this.locale
+            locale: this.locale,
+            stack: super.stack
         });
     }
 }
