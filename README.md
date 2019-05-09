@@ -16,3 +16,6 @@
 -	wrappedException
 -	stackTrace
 
+### Installing the package
+  
+    $ npm i 
