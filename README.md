@@ -1,6 +1,6 @@
-Generic Exception
+#Generic Exception
 
-Standardizing the exception payload format where every exception will provide below details:
+###Standardizing the exception payload format where every exception will provide below details:
 -	projectName
 -	timastamp
 -	code
