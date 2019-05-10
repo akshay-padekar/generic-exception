@@ -2,20 +2,8 @@
 
 const exceptionConstants = require('./exceptionConstants');
 
-let _projectName,
-    _timastamp,
-    _code,
-    _reason,
-    _locale,
-    _description,
-    _httpStatusCode,
-    _message,
-    _exceptionType,
-    _exceptionCategory,
-    _inspectionFields,
-    _messageBundle,
-    _substitutionArgs,
-    _wrappedException;
+let _projectName, _timastamp, _code, _reason, _locale, _description, _httpStatusCode, _message,
+    _exceptionType, _exceptionCategory, _inspectionFields, _messageBundle, _substitutionArgs, _wrappedException;
 
 class GenericException extends Error {
     constructor(builder) {
@@ -73,18 +61,8 @@ class GenericException extends Error {
     }
 
     static get Builder() {
-        let _code,
-            _description,
-            _httpStatusCode,
-            _messageBundle,
-            _exceptionType,
-            _message,
-            _wrappedException,
-            _inspectionFields,
-            _exceptionCategory,
-            _locale,
-            _reason,
-            _substitutionArgs;
+        let _code, _description, _httpStatusCode, _messageBundle, _exceptionType,
+            _message, _wrappedException, _inspectionFields, _exceptionCategory, _locale, _reason, _substitutionArgs;
 
         class Builder {
             constructor(exceptionType, messageBundle) {
@@ -131,6 +109,10 @@ class GenericException extends Error {
                 return _substitutionArgs;
             }
 
+            /**
+             * Builds error with specified message 
+             * @param {*} message 
+             */
             withMessage(message) {
                 _message = message;
                 return this;
@@ -204,25 +186,43 @@ class GenericException extends Error {
         return _wrappedException;
     }
 
+    /**
+     * Pass custom json object
+     */
     get inspectionFields() {
         return _inspectionFields;
     }
 
+    /** 
+     * Locale
+    */
     get locale() {
         return _locale;
     }
 
+    /**
+     * Error reason
+     */
     get reason() {
         return _reason;
     }
 
+    /**
+     * 
+     */
     get exceptionCategory() {
         return _exceptionCategory;
     }
 
+    /**
+     * 
+     */
     get exceptionType() {
         return _exceptionType;
     }
+    /**
+     * Timestamp
+     */
     get timestamp() {
         return _timastamp;
     }
